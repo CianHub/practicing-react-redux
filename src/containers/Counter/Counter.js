@@ -6,7 +6,8 @@ import CounterOutput from "../../components/CounterOutput/CounterOutput";
 
 class Counter extends Component {
   state = {
-    counter: 0
+    counter: 0,
+    results: []
   };
 
   counterChangedHandler = (action, value) => {
@@ -51,6 +52,10 @@ class Counter extends Component {
           label="Subtract 5"
           clicked={this.props.onSubtractCounter}
         />
+        <button onClick={this.props.onStoreResult}>Store Result</button>
+        <ul>
+          <li onClick={this.props.onDeleteResult}>a</li>
+        </ul>
       </div>
     );
   }
@@ -67,7 +72,9 @@ const mapDispatchToProps = dispatch => {
     onIncrementCounter: () => dispatch({ type: "INCREMENT", value: 1 }),
     onDecrementCounter: () => dispatch({ type: "DECREMENT", value: 1 }),
     onAddCounter: () => dispatch({ type: "ADD", value: 5 }),
-    onSubtractCounter: () => dispatch({ type: "SUBTRACT", value: 5 })
+    onSubtractCounter: () => dispatch({ type: "SUBTRACT", value: 5 }),
+    onStoreResult: () => dispatch({ type: "STORE_RESULT" }),
+    onDeleteResult: () => dispatch({ type: "DELETE_RESULT" })
   };
 };
 
