@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
 import "./index.css";
@@ -13,7 +13,21 @@ const rootReducer = combineReducers({
   counter: counterReducer,
   results: resultReducer
 });
-const store = createStore(rootReducer);
+
+const logger = store => {
+  return next => {
+    console.log(next);
+    return action => {
+      console.log(action);
+      const result = next(action);
+      console.log(store.getState());
+      return result;
+    };
+  };
+};
+
+const store = createStore(rootReducer, applyMiddleware(logger));
+logger(store);
 
 ReactDOM.render(
   <Provider store={store}>
