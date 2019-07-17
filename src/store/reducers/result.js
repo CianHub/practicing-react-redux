@@ -5,6 +5,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  console.log(action);
   if (action.type === ACTIONS.STORE_RESULT) {
     return {
       ...state,
@@ -17,7 +18,7 @@ const reducer = (state = initialState, action) => {
   if (action.type === ACTIONS.DELETE_RESULT) {
     return {
       ...state,
-      results: this.state.results.filter(item => action.id !== item.id)
+      results: state.results.filter(item => action.id !== item.id)
     };
   }
 

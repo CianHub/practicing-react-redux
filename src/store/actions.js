@@ -31,4 +31,16 @@ export const subtract = value => {
     value
   };
 };
+export const storeResult = result => {
+  return {
+    type: ACTIONS.STORE_RESULT,
+    result
+  };
+};
+export const deleteResult = id => {
+  return {
+    type: ACTIONS.DELETE_RESULT,
+    id
+  };
+};
 export default ACTIONS;

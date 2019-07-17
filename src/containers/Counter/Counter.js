@@ -7,7 +7,9 @@ import ACTIONS, {
   increment,
   decrement,
   add,
-  subtract
+  subtract,
+  storeResult,
+  deleteResult
 } from "../../store/actions";
 
 class Counter extends Component {
@@ -92,12 +94,8 @@ const mapDispatchToProps = dispatch => {
     onDecrementCounter: () => dispatch(decrement(1)),
     onAddCounter: () => dispatch(add(5)),
     onSubtractCounter: () => dispatch(subtract(5)),
-    onStoreResult: result =>
-      dispatch({
-        type: ACTIONS.STORE_RESULT,
-        result
-      }),
-    onDeleteResult: id => dispatch({ type: ACTIONS.DELETE_RESULT, id })
+    onStoreResult: result => dispatch(storeResult(result)),
+    onDeleteResult: id => dispatch(deleteResult(id))
   };
 };
 
