@@ -1,4 +1,5 @@
 import ACTIONS, { increment } from "../actions";
+import { updateObject } from "../utility";
 
 const initialState = {
   counter: 0
@@ -6,16 +7,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   if (action.type === ACTIONS.INCREMENT) {
-    return { ...state, counter: state.counter + action.value };
+    return updateObject(state, { counter: state.counter + action.value });
   }
   if (action.type === ACTIONS.DECREMENT) {
-    return { ...state, counter: state.counter - action.value };
+    return updateObject(state, { counter: state.counter - action.value });
   }
   if (action.type === ACTIONS.ADD) {
-    return { ...state, counter: state.counter + action.value };
+    return updateObject(state, { counter: state.counter + action.value });
   }
   if (action.type === ACTIONS.SUBTRACT) {
-    return { ...state, counter: state.counter - action.value };
+    return updateObject(state, { counter: state.counter - action.value });
   }
 
   return state;

@@ -1,4 +1,5 @@
 import ACTIONS from "../actions";
+import { updateObject } from "../utility";
 
 const initialState = {
   results: []
@@ -7,13 +8,12 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   console.log(action);
   if (action.type === ACTIONS.STORE_RESULT) {
-    return {
-      ...state,
+    return updateObject(state, {
       results: state.results.concat({
         id: new Date(),
         value: action.result
       })
-    };
+    });
   }
   if (action.type === ACTIONS.DELETE_RESULT) {
     return {

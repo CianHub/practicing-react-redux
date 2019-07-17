@@ -40,9 +40,10 @@ export const saveResult = result => {
 };
 
 export const storeResult = result => {
-  return dispatch => {
+  return (dispatch, getState) => {
     setTimeout(() => {
       dispatch(saveResult(result));
+      console.log(getState());
     }, 2000);
   };
 };
