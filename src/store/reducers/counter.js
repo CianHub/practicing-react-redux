@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(action);
   if (action.type === ACTIONS.INCREMENT) {
     return { ...state, counter: state.counter + action.value };
   }

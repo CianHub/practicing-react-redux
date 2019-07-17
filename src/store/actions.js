@@ -31,12 +31,22 @@ export const subtract = value => {
     value
   };
 };
-export const storeResult = result => {
+
+export const saveResult = result => {
   return {
     type: ACTIONS.STORE_RESULT,
     result
   };
 };
+
+export const storeResult = result => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(saveResult(result));
+    }, 2000);
+  };
+};
+
 export const deleteResult = id => {
   return {
     type: ACTIONS.DELETE_RESULT,
